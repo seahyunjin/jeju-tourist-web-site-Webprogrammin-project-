@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>3조 웹페이지</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="stylesheet" href="assets/css/main.css" />
+<style>
+    body {background-color: black;}
+    #map {
+      height: 100%;
+      width: 100%;
+    }
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    .map-area{height:1000px; overflow: hidden;}
+    .map-area div{height:100%;width: 100%; box-size:border-box;}
+
+</style>
+	</head>
+	<body class="landing">
+
+
+			<header id="header" class="alt">
+				<h1><a href="index.html">위치</a></h1>
+				<a href="#nav"></a>
+			</header>
+
+
+			<nav id="nav">
+				<ul class="links">
+					<li><a href="index.html">Home</a></li>
+					<li><a href="index2.html">위치</a></li>
+		 	<li><a href="index3.html">찾아가는 길</a></li>
+		 	<li><a href="index4.html">관련영상</a></li>
+					<li><a href="index5.html">올레길 코스</a></li>
+				</ul>
+			</nav>
+
+
+
+					</section>
+
+<br><br><br><br><br><br><br><br>
+          <div class="map-area">
+          <div class="map">
+          <div id='map'></div>
+            <script>
+              var map;
+              function initMap() {
+                map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 11,
+                  center: {lat: 33.367, lng: 126.533}
+                });
+                map.data.loadGeoJson(
+                    'locations.json');
+
+                map.data.setStyle({
+                  fillColor: 'green',
+                  strokeWeight: 1
+                });
+                var latlng = [
+                    [33.46298,126.30963,"몽상드 애월"],
+                    [33.46984, 126.48794,"수목원길 야시장"],
+                    [33.39641,126.34501,"아르떼뮤지엄"],
+                    [33.25271,126.62353,"쇠소깍"],
+                    [33.45237,126.92474,"광치기해변"],
+                    [33.43109,126.59583,"한라생태숲"],
+                    [33.29058,126.32257,"제주 소인국 테마파크"],
+                    [33.30045,126.58019,"원앙 폭포"]
+                    ];
+                var marker, i;
+                for (i = 0; i < latlng.length; i++) {
+                  marker=new google.maps.Marker({
+                  position:new google.maps.LatLng(latlng[i][0], latlng[i][1]),
+                  map:map, title:latlng[i][2]
+                  });
+                }
+              }
+            </script>
+            <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDmgNnWHRt1yKOsPUSeo98esgg_5UFhRw&callback=initMap">
+            </script>
+          </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
